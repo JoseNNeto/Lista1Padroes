@@ -1,9 +1,7 @@
 package observers;
-
-import java.util.List;
-
 import phone.PhoneModel;
 import phone.Screen;
+
 public class CallObserver implements Observer{
     private Screen screen;
     private PhoneModel model;
@@ -14,11 +12,15 @@ public class CallObserver implements Observer{
     }
 
     @Override
-    public void update() {
-        StringBuilder phoneNumber = new StringBuilder();
+    public void update(int number) {
+        String phoneNumber = "";
+        
         for (Integer digit : model.getDigits()) {
-            phoneNumber.append(digit);
+            phoneNumber += digit;
         }
-        screen.display("Agora discando " + phoneNumber.toString() + "...");
+        
+        if (phoneNumber.length() == 12) {
+            screen.display("Agora discando " + phoneNumber + "...");
+        }
     }
 }

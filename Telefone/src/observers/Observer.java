@@ -1,4 +1,4 @@
 package observers;
 public interface Observer {
-    public void update();
+    void update(int digit);
 }

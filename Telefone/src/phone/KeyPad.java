@@ -6,21 +6,19 @@ import java.util.Random;
  * however, here we're just sending it fake digits.
  */
 public class KeyPad {
-    private PhoneModel model;
-
+    private final PhoneModel model;
 
     public KeyPad(PhoneModel model) {
         this.model = model;
     }
 
     public void simulateKeyPresses(int numKeyPresses) {
-        final int MAX_DIGIT = 9;
+        final int MAX_DIGIT = 10;
         Random rnd = new Random();
         for (int i = 0; i < numKeyPresses; i++) {
             int newDigit = rnd.nextInt(MAX_DIGIT);
             System.out.println("Pressing: " + newDigit);
             model.addDigit(newDigit);
-            
         }
     }
 

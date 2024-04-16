@@ -1,7 +1,4 @@
 package observers;
-
-import java.util.List;
-
 import phone.PhoneModel;
 import phone.Screen;
 
@@ -15,8 +12,8 @@ public class KeyPadObserver implements Observer{
     }
 
     @Override
-    public void update() {
-        int lastDigit = model.getDigits().get(model.getDigits().size() - 1);
-        screen.display(String.valueOf(lastDigit));
+    public void update(int digit) {
+        screen.display("" + digit);
     }
+    
 }
